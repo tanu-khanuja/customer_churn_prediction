@@ -12,6 +12,8 @@ This project focuses on customer churn prediction using machine learning techniq
   - [Exploratory Data Analysis](#exploratory-data-analysis)
     - [Summary of EDA findings](#summary-of-eda-findings)
   - [Encoding and Normalization](#encoding-and-normalization)
+  - [Outliers](#outliers)
+  - [Correlation Matrix](#correlation-matrix)
   - [Modeling](#modeling)
     - [Data Splitting](#data-splitting)
   - [Model Evaluation](#model-evaluation)
@@ -49,7 +51,8 @@ The target variable is:
 ## Data Preparation
 
 1. **Dropping Unnecessary Columns**: The columns `RowNumber`, `CustomerId`, and `Surname` were removed as they do not contribute to the analysis.
-- Top five rows of dataset with only relevant features looks like:
+   Top five rows of dataset with only relevant features looks like:
+
 <img src="figs/features.png" alt= "Top five rows of dataset" width="800"/>
    
 2. **Handling Missing Values**: Checked for missing values—none found.
@@ -57,6 +60,7 @@ The target variable is:
 3. **Handling Duplicates**: Checked for duplicates—none found.
 
 4. **Renaming Columns**: The `Exited` column was renamed to `Churn`.
+
 <img src="figs/churn_renamed.png" width ="800"/>
 
 
@@ -94,7 +98,7 @@ The following graphs visualize the distribution of churn and other factors:
 <img src="figs/numproduct_churn.png" width ="300"/>
 
 ### Summary of EDA findings
-- The dataset is highly imbalanced, with around 80% of customers not churning and 20% churning. Gender-wise, a majority of customers are male, but more female customers are likely to churn. Age distribution shows that churn is more common among customers aged 40-50. Geographically, most customers are from France, but a higher churn rate is observed in Germany. Credit scores indicate that customers with intermediate scores have a higher tendency to churn, whereas those with very high or low scores are more stable. Tenure-wise, both long-term and new customers are less likely to churn, with the highest churn rates among customers with 1-9 years of tenure. Customers with zero balances show the highest churn rate, while those with higher balances are less likely to leave. Customers with 1-2 products are most common among both churners and non-churners. Additionally, the majority of churners are less active members, although a significant number of active customers also churn. Lastly, estimated salary does not show a clear pattern, as the churn rate remains similar across different salary ranges. These findings highlight key features that influence customer churn, providing important insights for building prediction models.
+The dataset is highly imbalanced, with around 80% of customers not churning and 20% churning. Gender-wise, a majority of customers are male, but more female customers are likely to churn. Age distribution shows that churn is more common among customers aged 40-50. Geographically, most customers are from France, but a higher churn rate is observed in Germany. Credit scores indicate that customers with intermediate scores have a higher tendency to churn, whereas those with very high or low scores are more stable. Tenure-wise, both long-term and new customers are less likely to churn, with the highest churn rates among customers with 1-9 years of tenure. Customers with zero balances show the highest churn rate, while those with higher balances are less likely to leave. Customers with 1-2 products are most common among both churners and non-churners. Additionally, the majority of churners are less active members, although a significant number of active customers also churn. Lastly, estimated salary does not show a clear pattern, as the churn rate remains similar across different salary ranges. These findings highlight key features that influence customer churn, providing important insights for building prediction models.
 
 ## Encoding and Normalization
 
@@ -104,13 +108,21 @@ The following graphs visualize the distribution of churn and other factors:
   
 <img src="figs/normalization.png" width ="600"/>
 
+## Outliers
+To investigate the presence of outliers, a box plot was created for all features in the dataset. The analysis revealed that the outliers identified do not appear to be noise that should be removed, as they seem reasonable within the context of the data.
+
+<img src="figs/outliers_box.png" width ="600"/>
+
+## Correlation Matrix
+To assess the independence of features, correlation matrix was plotted. The heatmap matrix indicated that there is no significant correlation observed among the features, suggesting that they are independent of each other.
+
+<img src="figs/corr_heatmap.png" width ="600"/>
+
 
 ## Modeling
 
 ### Data Splitting
 Divide the dataset into training and testing sets (75%-25%).
-
-### Models
 Two models were utilized for predicting customer churn:
 1. **Decision Tree**: Hyperparameter tuning was performed using GridSearchCV.
 
