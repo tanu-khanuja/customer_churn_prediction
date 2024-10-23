@@ -109,6 +109,8 @@ The following graphs visualize the distribution of churn and other factors:
 
 ### Data Splitting
 Divide the dataset into training and testing sets (75%-25%).
+
+### Models
 Two models were utilized for predicting customer churn:
 1. **Decision Tree**: Hyperparameter tuning was performed using GridSearchCV.
 
