@@ -90,7 +90,7 @@ The following graphs visualize the distribution of churn and other factors:
 
 5. **CreditScore, Tenure, Balance, and Other Features**: Additional plots to visualize relationships between features and churn.
 
-<img src="figs/balance_churn.png" width ="300"/>
+<img src="figs/balance_churn.png" width ="350"/>
 <img src="figs/creditscore_churn.png" width ="300"/>
 <img src="figs/estimatedsalary_churn.png" width ="300"/>
 <img src="figs/hascreditcard_churn.png" width ="300"/>
